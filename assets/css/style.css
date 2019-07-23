@@ -8,7 +8,7 @@ html, body {
 
 body {
 	background: url('../images/korea-background.jpg');
-  	background-size: 100% 100%;
+  	background-size: cover;
   	height: 100%;
   	overflow: hidden;
   	background-repeat: no-repeat;
@@ -31,9 +31,16 @@ body {
 
 #startPage {
 	width: 770px;
-	height: 450px;
-	border: 1px solid gray;
+	height: 530px;
 	text-align: center;
+}
+
+#flag {
+  width: 500px;
+  height: 300px;
+  opacity: 0.6;
+  display: block;
+  margin: 25px auto;
 }
 
 /*Questions*/
@@ -47,19 +54,92 @@ body {
 
 #questionsPage {
 	width: 770px;
-	height: 450px;
-	border: 1px solid gray;
+	height: 530px;
 	text-align: center;
 }
 
-button {
+/*Buttons*/ 
+
+#start {
   margin-top: 20px;
   line-height: 60px;
-  font-weight: bold;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 27px;
   padding: 0 40px;
-  background: salmon;
+  background: #6680b1;   
   border: none;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-button:hover {
-  background: lightsalmon;
+
+#start:hover {
+  background: #8ca5d4;
 }
+
+#button {
+  line-height: 60px;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 27px;
+  padding: 0 70px;
+  background: #6680b1;   
+  border: none;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 5px auto;
+}
+
+#button:hover {
+  background: #8ca5d4;
+}
+
+#reset {
+  line-height: 60px;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 27px;
+  padding: 0 70px;
+  background: #6680b1;   
+  border: none;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 20px auto;
+}
+
+#reset:hover {
+  background: #8ca5d4;
+}
+
+/*Body*/
+
+#timer {
+  font-family: 'Gamja Flower', cursive;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+h2 {
+  font-family: 'Gaegu', cursive;
+  margin-top: 30px;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-family: 'Gaegu', cursive;
+  margin-top: 30px;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+.results {
+  font-family: 'Gaegu', cursive;
+  margin-top: 5px;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+

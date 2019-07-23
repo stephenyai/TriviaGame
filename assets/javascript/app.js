@@ -1,6 +1,6 @@
 var timer;
 var newQ;
-var counter = 3;
+var counter = 30;
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var thisQ = 0;
@@ -39,7 +39,7 @@ function gameStart() {
 
 function decreaseCounter() { 
        counter--;
-       $('#timer').text("Time Remaining: " + counter)
+       $('#timer').html("<h1>Time Remaining: " + counter + "</h1>")
 
 	if (counter == 0) {
 	      timesUp();
@@ -50,7 +50,7 @@ function questionPage() {
        timer = setInterval(decreaseCounter, 1*1000);
        clearInterval(newQ);
 
-	$('#questions').text(questions[thisQ].question)
+	$('#choices').html("<h2>" + questions[thisQ].question + "</h2>")
 
 	for (i=0; i<questions[thisQ].choices.length; i++) {
               var button = $("<button id='button' value='" + questions[thisQ].choices[i] + "'>");
@@ -63,28 +63,41 @@ function rightAnswer() {
        clearInterval(timer);
        correctAnswers++;
 
-       $('#questions').html("<h2>Correct</h2>");
-       $('#choices').html("<h3> correct answer is ..." )
+       $('#choices').html("<h2>Great Job!</h2>");
+       //$('#choices').append("<h3> correct answer is ..." )
 
-       newQ = setInterval(newQuestion, 3*1000);
+       if (thisQ === questions.length-1) {
+              newQ = setInterval(totalScore, 3*1000);
+       } else {
+              newQ = setInterval(newQuestion, 3*1000);
+       }
 }
 
 function wrongAnswer() {
        clearInterval(timer);
        wrongAnswers++;
 
-       $('#questions').html("<h2>Nice try</h2>")
-       $('#choices').html("<h3> correct answer is ..." )
+       $('#choices').html("<h2>Incorrect!</h2>")
+       $('#choices').append("<h3>The correct answer was: " + questions[thisQ].answer + "</h3>")
 
+       if (thisQ === questions.length-1) {
+              newQ = setInterval(totalScore, 3*1000);
+       } else {
+              newQ = setInterval(newQuestion, 3*1000);
+       }
 }
 
 function timesUp() {
        clearInterval(timer);
 
-       $('#questions').html("<h2>Time's Up!</h2>");
-       $('#choices').html("<h3> correct answer is ..." )
+       $('#choices').html("<h2>Time's Up!</h2>");
+       $('#choices').append("<h3>The correct answer was: " + questions[thisQ].answer + "</h3>")
 
-       newQ = setInterval(newQuestion, 3*1000);
+       if (thisQ === questions.length-1) {
+              newQ = setInterval(totalScore, 3*1000);
+       } else {
+              newQ = setInterval(newQuestion, 3*1000);
+       }
 }
 
 function newQuestion() {
@@ -96,10 +109,22 @@ function newQuestion() {
 
 function totalScore() {
        clearInterval(timer);
-}
+
+       $('#choices').html("<h2>Hope you had fun! How did you do?</h2>")
+       $('#choices').append("<h3 class='results'> Correct answers: " + correctAnswers + "</h3>");
+       $('#choices').append("<h3 class='results'> Wrong answers: " + wrongAnswers + "</h3>");
+       $('#choices').append("<h3 class='results'> Questions unanswered: " + (questions.length - (correctAnswers + wrongAnswers)) + "</h3>");
+
+       $('#choices').append("<button id='reset' type='submit' value='reset'>Play Again</button>")
+}      
 
 function reset() {
-
+       counter = 30;
+       correctAnswers = 0;
+       wrongAnswers = 0;
+       thisQ = 0;
+       $('#timer').text("Time Remaining: " + counter)
+       questionPage();
 }
 
 defaultPage();
@@ -112,7 +137,9 @@ $(document).on('click', '#button', function(event) {
        }
 })
 
-
+$(document).on('click', '#reset', function() {
+       reset();
+})
 
 
 
