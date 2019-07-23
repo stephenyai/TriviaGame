@@ -1,0 +1,41 @@
+<!-- array of object for the questions -->
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>South Korea Trivia</title>
+
+		<link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Shojumaru&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="main">
+			<section id="startPage">
+				<h3 id="title">Get to know South Korea!</h3>
+
+				<button id="start" type="submit" value="start" onclick="gameStart()">Start</button>
+			</section>
+		</div>
+
+		<div class="questionScreen">
+			<section id="questionsPage">
+				<p id="timer"></p>
+					
+				<p id="questions"></p>
+
+				<div id="choices">
+				</div>
+			</section>
+		</div>
+
+		<footer>
+			Copyright &copy;
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="assets/javascript/app.js"></script>
+	</body>
+</html>
