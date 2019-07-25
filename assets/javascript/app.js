@@ -9,17 +9,50 @@ var questions = [
 	{
 		question: 'What is the capital of South Korea?',
 		choices: ['Busan', 'Seoul', 'Pyongyang', 'Incheon'],
-		answer: 'Seoul'
+		answer: 'Seoul',
+              funFact: 'Along with the great city that is Seoul, South Korea is home to other great landscapes such as Busan and Jeju Island.'
 	}, 
 	{
-		question: 'Seaweed question',
+		question: 'South Korea harvests more than 90% of the world\'s consumption for this item.',
               choices: ['Rice', 'Salt', 'Seaweed', 'Beef'],
-		answer: 'Seaweed'
+		answer: 'Seaweed',
+              funFact: 'Nutritious, delicious, and vegan: Good source of calcium, iodine, iron, and vitamin B12. Less than 70 calories per snack pack.'
 	},
        {
-              question: 'Independence Day',
-              choices: ['date', 'efefee', 'gogog', 'adada'],
-              answer: 'date'
+              question: 'The Korean Demilitarized Zone, the buffer zone that divides the Korean Peninsula roughly in half, was created in: ',
+              choices: ['1952', '1949', '1957', '1953'],
+              answer: '1953',
+              funFact: 'The DMZ is still an active war zone and runs 150 miles long.'
+       },
+       {
+              question: 'This Olympic sport originated from South Korea.',
+              choices: ['Wrestling', 'Archery', 'Ice Skating', 'Tae Kwon Do'],
+              answer: 'Tae Kwon Do',
+              funFact: 'Translates to \'Way of the Foot and Fist\'. Tae Kwon Do is the national sport of South Korea.'
+       },
+       {
+              question: 'What is the Korean word for \'side dishes\' commonly served at Korean establishments?',
+              choices: ['kimchi', 'soju', 'banchan', 'galbi'],
+              answer: 'banchan',
+              funFact: 'Make sure to greet your Korean server with \'Annyeong haseyo\' at Korean restaurants! (The formal greeting for Hello!)'
+       },
+       {
+              question: 'This South Korean film, considered a modern masterpiece, was remade by the great Spike Lee.',
+              choices: ['Train to Busan', 'Old Boy', 'Burning', 'Taegukgi'],
+              answer: 'Old Boy',
+              funFact: 'Directed by Cho Young-wuk. The other choices are great Korean movies as well. Highly recommended.'
+       },
+       {
+              question: 'Select the K-Pop band that is NOT real',
+              choices: ['H.O.T', 'Big Bang', 'BTS', 'Buster Buster'],
+              answer: 'Buster Buster',
+              funFact: 'Yes you know K-Pop, but there are talented artists in different genres such as Busker Busker (the real band name) which is indie/alternative.'
+       },
+       {
+              question: 'In the U.S., the Korean War is often called the _____________ due to coverage being censored and overshadowed by World War II and the Vietnam War.',
+              choices: ['Great War', 'Forgotten War', 'Tragic War', 'Unnecessary War'],
+              answer: 'Forgotten War', 
+              funFact: 'The war devestated Korea with a reported 3-4 million deaths, mostly citizens. A formal peace treaty has yet to be signed.'
        }
 ];
 
@@ -64,12 +97,12 @@ function rightAnswer() {
        correctAnswers++;
 
        $('#choices').html("<h2>Great Job!</h2>");
-       //$('#choices').append("<h3> correct answer is ..." )
+       $('#choices').append("<h4> Fun Fact: " + questions[thisQ].funFact + "</h4>");
 
        if (thisQ === questions.length-1) {
-              newQ = setInterval(totalScore, 3*1000);
+              newQ = setInterval(totalScore, 5*1000);
        } else {
-              newQ = setInterval(newQuestion, 3*1000);
+              newQ = setInterval(newQuestion, 5*1000);
        }
 }
 
@@ -78,12 +111,13 @@ function wrongAnswer() {
        wrongAnswers++;
 
        $('#choices').html("<h2>Incorrect!</h2>")
-       $('#choices').append("<h3>The correct answer was: " + questions[thisQ].answer + "</h3>")
+       $('#choices').append("<h3>The correct answer is: " + questions[thisQ].answer + "</h3>")
+       $('#choices').append("<h4> Fun Fact: " + questions[thisQ].funFact + "</h4>");
 
        if (thisQ === questions.length-1) {
-              newQ = setInterval(totalScore, 3*1000);
+              newQ = setInterval(totalScore, 5*1000);
        } else {
-              newQ = setInterval(newQuestion, 3*1000);
+              newQ = setInterval(newQuestion, 5*1000);
        }
 }
 
@@ -92,11 +126,12 @@ function timesUp() {
 
        $('#choices').html("<h2>Time's Up!</h2>");
        $('#choices').append("<h3>The correct answer was: " + questions[thisQ].answer + "</h3>")
+       $('#choices').append("<h4> Fun Fact: " + questions[thisQ].funFact + "</h4>");
 
        if (thisQ === questions.length-1) {
-              newQ = setInterval(totalScore, 3*1000);
+              newQ = setInterval(totalScore, 5*1000);
        } else {
-              newQ = setInterval(newQuestion, 3*1000);
+              newQ = setInterval(newQuestion, 5*1000);
        }
 }
 
@@ -135,12 +170,15 @@ $(document).on('click', '#button', function(event) {
        } else {
               wrongAnswer();
        }
-})
+});
 
 $(document).on('click', '#reset', function() {
        reset();
-})
+});
 
+$(document).on('click', '#start', function() {
+       gameStart();
+});
 
 
 

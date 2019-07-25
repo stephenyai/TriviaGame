@@ -135,6 +135,13 @@ h3 {
   margin-bottom: 40px;
 }
 
+h4 {
+  font-family: 'Gaegu', cursive;
+  margin-top: 50px;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
 .results {
   font-family: 'Gaegu', cursive;
   margin-top: 5px;
