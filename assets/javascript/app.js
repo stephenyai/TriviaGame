@@ -34,7 +34,7 @@ var questions = [
               question: 'What is the Korean word for \'side dishes\' commonly served at Korean establishments?',
               choices: ['kimchi', 'soju', 'banchan', 'galbi'],
               answer: 'banchan',
-              funFact: 'Make sure to greet your Korean server with \'Annyeong haseyo\' at Korean restaurants! (The formal greeting for Hello!)'
+              funFact: 'Make sure to greet your server with \'Annyeong haseyo\' at Korean restaurants! (The formal greeting for Hello!)'
        },
        {
               question: 'This South Korean film, considered a modern masterpiece, was remade by the great Spike Lee.',
@@ -43,7 +43,7 @@ var questions = [
               funFact: 'Directed by Cho Young-wuk. The other choices are great Korean movies as well. Highly recommended.'
        },
        {
-              question: 'Select the K-Pop band that is NOT real',
+              question: 'Select the K-Pop band that is NOT real.',
               choices: ['H.O.T', 'Big Bang', 'BTS', 'Buster Buster'],
               answer: 'Buster Buster',
               funFact: 'Yes you know K-Pop, but there are talented artists in different genres such as Busker Busker (the real band name) which is indie/alternative.'
@@ -125,7 +125,7 @@ function timesUp() {
        clearInterval(timer);
 
        $('#choices').html("<h2>Time's Up!</h2>");
-       $('#choices').append("<h3>The correct answer was: " + questions[thisQ].answer + "</h3>")
+       $('#choices').append("<h3>The correct answer is: " + questions[thisQ].answer + "</h3>")
        $('#choices').append("<h4> Fun Fact: " + questions[thisQ].funFact + "</h4>");
 
        if (thisQ === questions.length-1) {
@@ -145,7 +145,7 @@ function newQuestion() {
 function totalScore() {
        clearInterval(timer);
 
-       $('#choices').html("<h2>Hope you had fun! How did you do?</h2>")
+       $('#choices').html("<h2>Hope you had fun and learned a little something! How did you do?</h2>")
        $('#choices').append("<h3 class='results'> Correct answers: " + correctAnswers + "</h3>");
        $('#choices').append("<h3 class='results'> Wrong answers: " + wrongAnswers + "</h3>");
        $('#choices').append("<h3 class='results'> Questions unanswered: " + (questions.length - (correctAnswers + wrongAnswers)) + "</h3>");
